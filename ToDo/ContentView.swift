@@ -28,7 +28,7 @@ struct ContentView: View {
                 }
             }
             .alert("Add Todo List", isPresented: $showAddListAlert) {
-                TextField("Todo List Title", text: $newListTitle)
+                TextField("Todo Title", text: $newListTitle)
                 Button("Cancel", role: .cancel, action: {})
                 Button("Create") {
                     let list = TodoList(title: newListTitle, items: [])
@@ -36,14 +36,12 @@ struct ContentView: View {
                 }
             }
         } detail: {
-            
             VStack {
                 if let selectedTodoList {
                     TodoListView(list: selectedTodoList)
                 }
             }
             .padding()
-            
         }
     }
 }
