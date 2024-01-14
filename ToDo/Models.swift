@@ -15,7 +15,7 @@ class TodoList: Identifiable {
     @Relationship(deleteRule: .cascade)
     var items: [TodoItem] = []
     
-    init(title: String, items: [TodoItem]) {
+    init(title: String, items: [TodoItem] = []) {
         self.title = title
         self.items = []
     }
