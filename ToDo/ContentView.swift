@@ -14,14 +14,23 @@ struct ContentView: View {
     @Query private var todoLists: [TodoList]
     @State private var selectedTodoList: TodoList? = nil
     
+    @State private var showingDeleteTodoAlert: Bool = false
     @State private var showAddListAlert: Bool = false
     @State private var newListTitle: String = ""
+    
     
     var body: some View {
         NavigationSplitView {
             List(todoLists) { list in
                 Button(list.title) {
                     selectedTodoList = list
+                }
+                .swipeActions {
+                    Button("Delete") {
+                        selectedTodoList = list
+                        showingDeleteTodoAlert = true
+                    }
+                    .tint(.red)
                 }
             }
             .navigationTitle("Todo Lists")
@@ -36,12 +45,34 @@ struct ContentView: View {
                 Button("Create") {
                     let list = TodoList(title: newListTitle)
                     context.insert(list)
+                    do {
+                        try context.save()
+                    } catch {
+                        print("Error \(error.localizedDescription)")
+                    }
+                    newListTitle = ""
+                }
+            }
+            .alert("Delete?", isPresented: $showingDeleteTodoAlert) {
+                Button("Cancel", role: .cancel) {}
+                Button("Delete", role: .destructive) {
+                    if let selectedTodoList {
+                        context.delete(selectedTodoList)
+                        do {
+                            try context.save()
+                        } catch {
+                            print("Error \(error.localizedDescription)")
+                        }
+                    }
+                    selectedTodoList = nil
                 }
             }
         } detail: {
             VStack {
                 if let selectedTodoList {
                     TodoListView(list: selectedTodoList)
+                        .navigationTitle("Details for \(selectedTodoList.title)")
+                        .id(selectedTodoList.id)
                 }
             }
             .padding()

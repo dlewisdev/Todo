@@ -24,23 +24,9 @@ struct TodoItemView: View {
                     list.items.filter { $0.isDone == showingCompleted }.isEmpty ? "" : "Completed") {
             
             List(list.items.filter { $0.isDone == showingCompleted }) { item in
-                HStack {
-                    Button {
-                        item.isDone.toggle()
-                    } label: {
-                        Image(systemName: item.isDone ? "circle.fill" : "circle")
-                            .foregroundStyle(.blue)
-                    }
-                    
-                    Text(item.title)
-                    Spacer()
-                }
-                .toggleStyle(.button)
+                ItemRowView(item: item)
+                    .id(item.id)
             }
-            .listRowHoverEffectDisabled()
-            .navigationTitle("Details for \(list.title)")
-            .id(list.id)
-            
         }
     }
 }
