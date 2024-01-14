@@ -8,19 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var todoLists: [TodoList] = []
+    @State private var selectedTodoList: TodoList? = nil
+    
     var body: some View {
         NavigationSplitView {
-            List {
-                Text("Item")
+            List(todoLists) { list in
+                Button(list.title) {
+                    selectedTodoList = list
+                }
             }
-            .navigationTitle("Sidebar")
+            .navigationTitle("Todo Lists")
+            .toolbar {
+                Button("Add") {
+                    let list = TodoList(title: "List \(todoLists.count + 1)", items: [])
+                    todoLists.append(list)
+                }
+            }
+            
         } detail: {
             
             VStack {
-                Text("Hello, world!")
+                if let selectedTodoList {
+                    Text(selectedTodoList.title)
+                        .navigationTitle("Details for \(selectedTodoList.title)")
+                }
             }
             .padding()
-            .navigationTitle("Content")
+            
         }
     }
 }
