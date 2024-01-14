@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct TodoListView: View {
     @State var list: TodoList
@@ -46,7 +47,7 @@ struct TodoListView: View {
                     TextField("Todo List Title", text: $newTodoTitle)
                     Button("Cancel", role: .cancel, action: {})
                     Button("Create") {
-                        let todo = TodoItem(title: newTodoTitle, isDone: false)
+                        let todo = TodoItem(title: newTodoTitle)
                         list.items.append(todo)
                     }
                 }
@@ -79,5 +80,6 @@ struct TodoListView: View {
 }
 
 #Preview {
-    TodoListView(list: TodoList(title: "Test List", items: [TodoItem(title: "Test", isDone: false), TodoItem(title: "Test 2", isDone: true), TodoItem(title: "Test 3", isDone: false), TodoItem(title: "Test 4", isDone: true)]))
+    TodoListView(list: TodoList(title: "Test List", items: [TodoItem(title: "Test"), TodoItem(title: "Test 2"), TodoItem(title: "Test 3"), TodoItem(title: "Test 4")]))
+        .modelContainer(for: [TodoItem.self, TodoList.self])
 }
