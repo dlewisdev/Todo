@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
     @Environment(\.modelContext) private var context
-    @State private var todoLists: [TodoList] = []
+    
+    @Query private var todoLists: [TodoList]
     @State private var selectedTodoList: TodoList? = nil
     
     @State private var showAddListAlert: Bool = false
@@ -32,8 +34,8 @@ struct ContentView: View {
                 TextField("Todo Title", text: $newListTitle)
                 Button("Cancel", role: .cancel, action: {})
                 Button("Create") {
-                    let list = TodoList(title: newListTitle, items: [])
-                    todoLists.append(list)
+                    let list = TodoList(title: newListTitle)
+                    context.insert(list)
                 }
             }
         } detail: {
