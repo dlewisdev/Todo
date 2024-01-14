@@ -12,6 +12,7 @@
 		71A6D1A62B53984400E70526 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6D1A52B53984400E70526 /* ContentView.swift */; };
 		71A6D1A82B53984500E70526 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A6D1A72B53984500E70526 /* Assets.xcassets */; };
 		71A6D1AB2B53984500E70526 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A6D1AA2B53984500E70526 /* Preview Assets.xcassets */; };
+		71A6D1B32B539A2200E70526 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6D1B22B539A2200E70526 /* Models.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +23,7 @@
 		71A6D1A72B53984500E70526 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		71A6D1AA2B53984500E70526 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		71A6D1AC2B53984500E70526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		71A6D1B22B539A2200E70526 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +60,7 @@
 			children = (
 				71A6D1A32B53984400E70526 /* ToDoApp.swift */,
 				71A6D1A52B53984400E70526 /* ContentView.swift */,
+				71A6D1B22B539A2200E70526 /* Models.swift */,
 				71A6D1A72B53984500E70526 /* Assets.xcassets */,
 				71A6D1AC2B53984500E70526 /* Info.plist */,
 				71A6D1A92B53984500E70526 /* Preview Content */,
@@ -154,6 +157,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71A6D1B32B539A2200E70526 /* Models.swift in Sources */,
 				71A6D1A62B53984400E70526 /* ContentView.swift in Sources */,
 				71A6D1A42B53984400E70526 /* ToDoApp.swift in Sources */,
 			);
