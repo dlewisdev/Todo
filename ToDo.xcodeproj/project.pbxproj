@@ -14,6 +14,7 @@
 		71A6D1AB2B53984500E70526 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 71A6D1AA2B53984500E70526 /* Preview Assets.xcassets */; };
 		71A6D1B32B539A2200E70526 /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6D1B22B539A2200E70526 /* Models.swift */; };
 		71A6D1B52B539F5D00E70526 /* TodoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6D1B42B539F5D00E70526 /* TodoListView.swift */; };
+		71A6D1B72B54708500E70526 /* TodoItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 71A6D1B62B54708500E70526 /* TodoItemView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		71A6D1AC2B53984500E70526 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		71A6D1B22B539A2200E70526 /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
 		71A6D1B42B539F5D00E70526 /* TodoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoListView.swift; sourceTree = "<group>"; };
+		71A6D1B62B54708500E70526 /* TodoItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoItemView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +64,7 @@
 			children = (
 				71A6D1A32B53984400E70526 /* ToDoApp.swift */,
 				71A6D1B42B539F5D00E70526 /* TodoListView.swift */,
+				71A6D1B62B54708500E70526 /* TodoItemView.swift */,
 				71A6D1A52B53984400E70526 /* ContentView.swift */,
 				71A6D1B22B539A2200E70526 /* Models.swift */,
 				71A6D1A72B53984500E70526 /* Assets.xcassets */,
@@ -164,6 +167,7 @@
 				71A6D1A62B53984400E70526 /* ContentView.swift in Sources */,
 				71A6D1B52B539F5D00E70526 /* TodoListView.swift in Sources */,
 				71A6D1A42B53984400E70526 /* ToDoApp.swift in Sources */,
+				71A6D1B72B54708500E70526 /* TodoItemView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
