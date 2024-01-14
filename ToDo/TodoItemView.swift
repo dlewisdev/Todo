@@ -6,13 +6,45 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct TodoItemView: View {
+    @Environment(\.modelContext) var context
+    
+    @State var list: TodoList
+    
+    @State private var showAddTodoAlert: Bool = false
+    @State private var newTodoTitle: String = ""
+    
+    @State var showingCompleted: Bool
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Section(list.items.isEmpty ? "" :
+                    showingCompleted == false ? "Todo" :
+                    list.items.filter { $0.isDone == showingCompleted }.isEmpty ? "" : "Completed") {
+            
+            List(list.items.filter { $0.isDone == showingCompleted }) { item in
+                HStack {
+                    Button {
+                        item.isDone.toggle()
+                    } label: {
+                        Image(systemName: item.isDone ? "circle.fill" : "circle")
+                            .foregroundStyle(.blue)
+                    }
+                    
+                    Text(item.title)
+                    Spacer()
+                }
+                .toggleStyle(.button)
+            }
+            .listRowHoverEffectDisabled()
+            .navigationTitle("Details for \(list.title)")
+            .id(list.id)
+            
+        }
     }
 }
 
 #Preview {
-    TodoItemView()
+    TodoItemView(list: TodoList(title: "Test List", items: [TodoItem(title: "Test"), TodoItem(title: "Test 2"), TodoItem(title: "Test 3"), TodoItem(title: "Test 4")]), showingCompleted: false)
 }
