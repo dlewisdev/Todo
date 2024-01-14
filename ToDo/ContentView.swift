@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct ContentView: View {
+    @Environment(\.modelContext) private var context
     @State private var todoLists: [TodoList] = []
     @State private var selectedTodoList: TodoList? = nil
     
@@ -48,4 +49,5 @@ struct ContentView: View {
 
 #Preview(windowStyle: .automatic) {
     ContentView()
+        .modelContainer(for: [TodoItem.self, TodoList.self])
 }
