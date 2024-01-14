@@ -11,6 +11,9 @@ struct ContentView: View {
     @State private var todoLists: [TodoList] = []
     @State private var selectedTodoList: TodoList? = nil
     
+    @State private var showAddListAlert: Bool = false
+    @State private var newListTitle: String = ""
+    
     var body: some View {
         NavigationSplitView {
             List(todoLists) { list in
@@ -21,17 +24,22 @@ struct ContentView: View {
             .navigationTitle("Todo Lists")
             .toolbar {
                 Button("Add") {
-                    let list = TodoList(title: "List \(todoLists.count + 1)", items: [])
+                    showAddListAlert.toggle()
+                }
+            }
+            .alert("Add Todo List", isPresented: $showAddListAlert) {
+                TextField("Todo List Title", text: $newListTitle)
+                Button("Cancel", role: .cancel, action: {})
+                Button("Create") {
+                    let list = TodoList(title: newListTitle, items: [])
                     todoLists.append(list)
                 }
             }
-            
         } detail: {
             
             VStack {
                 if let selectedTodoList {
-                    Text(selectedTodoList.title)
-                        .navigationTitle("Details for \(selectedTodoList.title)")
+                    TodoListView(list: selectedTodoList)
                 }
             }
             .padding()
